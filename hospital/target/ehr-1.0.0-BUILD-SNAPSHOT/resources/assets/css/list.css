@@ -1,0 +1,187 @@
+@media screen and (min-width: 1200px) and (max-width: 1200px){
+  .body{
+      margin: 0px;
+      display: block;
+  }
+  }
+
+  * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+  color: #333
+  }
+
+  header{
+  height: 100px;
+  padding: 0 30px;    
+  display: flex;
+  align-items: center
+  }
+
+  .banner,header {  
+  background: darkkhaki;
+  }
+
+  .banner{
+  position: relative;
+  height: 3px;
+  }
+
+  .banner .option{
+  background: white;
+  position: absolute;
+  width: calc(100% - 60px);
+  bottom : -50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 3px 7.8px .2px hsla(0, 0%, 66.7%, .3);
+  padding: 25px 30px;
+  z-index: 2;
+  }
+
+  .banner .option .select {
+  padding: 15px 29px;
+  border-radius: 25px;
+  border: 1px solid #888;
+  background: #fff;
+  float: left;
+  font-size: 15px;
+  color: #444;
+  text-align: center;
+  margin-left: 30px;
+  cursor: pointer;
+  }
+
+  .banner .option .select:first-child {
+  margin-left: 0
+  }
+
+  .banner .option .select.active {  
+  background: #fcf16a;
+  border-color: #fcf16a;
+  position: relative;
+  padding-right: 50px;
+  pointer-events: none
+  }
+
+  .banner .option .select .close_btn {
+  display: none
+  }
+
+  .banner .option .select.active .close_btn {
+  display: inline-block;
+  position: absolute;
+  background: #fff;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  font-size: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-weight: 700;
+  right: 15px;
+  pointer-events: all
+  }
+
+  .list_wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; 
+  padding: 0 30px;
+  }
+
+  .list_wrap>.left_content {
+  width: 100%;
+  margin-right: 0px
+  }
+
+  .list_wrap .right_content {
+  position: relative
+  }
+
+  .list_wrap .right_content .map {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-position: 50%;
+  background-size: cover;
+  overflow: hidden
+  }
+
+  /* left-content 병원 div */
+
+  .hospital-card {
+    width: 100%; 
+    height: 290px; 
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
+
+.hospital-header {
+  display: flex;
+  align-items: center;
+}
+
+.hospital-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.hospital-departments {
+  font-size: 12px;
+  color: #555;
+}
+
+.hospital-details {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.hospital-address {
+  margin-bottom: 5px;
+}
+
+.hospital-distance {
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #444;
+}
+
+.hospital-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.yellow-button {
+  background-color: #fcf16a;
+  color: #333;
+  font-weight: bold;
+}
