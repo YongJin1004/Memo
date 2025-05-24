@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>병원 위치</title>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db6b66ee32de5c188c171ffea6d8fe47"></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<h1>병원 위치</h1>
+<div id="map"></div>
+<script>
+  // 병원 데이터를 서버에서 가져오는 함수
+  async function fetchHospitalData() {
+    const response = await fetch('/api/hospitals'); // 서버에서 병원 데이터를 JSON 형식으로 제공
+    return response.json();
+  }
+
+  // 카카오맵 초기화 및 병원 위치 표시
+  async function initMap() {
+    const mapContainer = document.getElementById('map'); // 지도를 표시할 div
+    const mapOption = {
+      center: new kakao.maps.LatLng(37.5665, 126.9780), // 기본 지도 중심점 (서울)
+      level: 5 // 지도의 확대 레벨
+    };
+
+    const map = new kakao.maps.Map(mapContainer, mapOption);
+
+    const hospitals = await fetchHospitalData();
+
+    // 병원 데이터로 마커 표시
+    hospitals.forEach(hospital => {
+      const { DUTYNAME, DUTYADDR, WGS84LAT, WGS84LON } = hospital;
+
+      const markerPosition = new kakao.maps.LatLng(WGS84LAT, WGS84LON);
+
+      const marker = new kakao.maps.Marker({
+        position: markerPosition,
+        map: map
+      });
+
+      // 마커 클릭 시 병원 정보 표시
+      const infowindow = new kakao.maps.InfoWindow({
+        content: `<div style="padding:5px;">${DUTYNAME}<br>${DUTYADDR}</div>`
+      });
+
+      kakao.maps.event.addListener(marker, 'click', () => {
+        infowindow.open(map, marker);
+      });
+    });
+  }
+
+  initMap();
+</script>
+</body>
+</html>

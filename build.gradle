@@ -36,15 +36,14 @@ dependencies {
 
 	// spring security
 
-	//	implementation 'org.springframework.boot:spring-boot-starter-security'
-	//	testImplementation 'org.springframework.security:spring-security-test'
-	//	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//		implementation 'org.springframework.boot:spring-boot-starter-security'
+//		testImplementation 'org.springframework.security:spring-security-test'
+//		implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
 	// MyBatis
 	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc11', version: '21.8.0.0'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+	//implementation group: 'org.json', name: 'json', version: '20160810'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
